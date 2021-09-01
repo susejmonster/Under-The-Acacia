@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <Style>
+   @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300&display=swap');
+   @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,600&display=swap');
+   .header {
+            font-size:48px;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+            font-style: bold;
+            padding-left: 1vw;
+            padding-right: 1vw;
+            }
+  
+   
+   img {
+  display: block;
+  max-width:400px;
+  max-height:750px;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.head{
+      width:100%;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+ 
+
+  .articlelist{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #FDEEC9;
+    position: relative;
+    top:0;
+	  bottom: 0;
+	  left: 0;
+	  right: 0;
+  	
+	  margin: auto;
+  }
+  .card{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+    margin-left: 5vw;
+  }
+
+  .card-title{
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .card-body{
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: small;
+    text-align: center;
+  }
+  
+  .btn{
+    position:relative;
+    top: 10px;
+    padding: 5px 15px;
+    font-size: 12px;
+    font-weight: 900;
+    color: #fff;
+    background-color:  #f50057;
+    border: 2px solid  #f50057;
+    cursor: pointer;
+    width: max-content;
+    transition: 0.25s ease;
+  }
+  a:hover{
+    box-shadow: 0 6px 18px 0 rgba(#000, 0.1);
+    transform: translateY(-6px);
+  }
+  
+  .date{
+    position: relative;
+    bottom: 20px;
+    margin:auto;
+    font-size: 12px;
+  }
+ 
+  
+ </Style>
+  
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Blog</title>
+</head>
+<body>
+  <div class="container">
+    <div class = "head">
+    <img src = "Humaaans - 3 Characters.png" alt = "cant display"/>
+   
+    <h1 class = "header">UNDER THE ACACIA</h1>
+  </div>
+    
+  <div class = "articlelist">
+    <% articles.forEach(article => { %>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title"><%= article.title %></h4>
+          <div class="date">
+            <%= article.createdAt.toLocaleDateString() %>
+          </div>
+          <div class="card-text mb-2"><%= article.description %></div>
+          <a href="articles/<%= article.slug %>" class="btn">Read More</a>
+          
+           
+        </div>
+      </div>
+    <% }) %>
+  </div> 
+  </div>
+</body>
+</html>
